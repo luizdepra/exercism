@@ -13,6 +13,7 @@ fn test_date() {
 }
 
 #[test]
+#[ignore]
 fn test_another_date() {
     let start_date = Utc.ymd(1977, 6, 13).and_hms(0, 0, 0);
 
@@ -23,6 +24,7 @@ fn test_another_date() {
 }
 
 #[test]
+#[ignore]
 fn test_third_date() {
     let start_date = Utc.ymd(1959, 7, 19).and_hms(0, 0, 0);
 
@@ -33,6 +35,7 @@ fn test_third_date() {
 }
 
 #[test]
+#[ignore]
 fn test_datetime() {
     let start_date = Utc.ymd(2015, 1, 24).and_hms(22, 0, 0);
 
@@ -43,6 +46,7 @@ fn test_datetime() {
 }
 
 #[test]
+#[ignore]
 fn test_another_datetime() {
     let start_date = Utc.ymd(2015, 1, 24).and_hms(23, 59, 59);
 
