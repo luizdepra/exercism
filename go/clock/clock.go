@@ -38,7 +38,7 @@ func calcTime(hour, minute int) (int, int) {
 }
 
 // Time returns a Clock object initialized with the hour and the minute values.
-func New(hour, minute int) Clock {
+func Time(hour, minute int) Clock {
 	hour, minute = calcTime(hour, minute)
 
 	return Clock{
@@ -54,16 +54,6 @@ func (clock Clock) String() string {
 // Add return a new Clock object with minutes added to current Clock values.
 func (clock Clock) Add(minutes int) Clock {
 	hour, minute := calcTime(clock.hour, clock.minute+minutes)
-
-	clock.hour = hour
-	clock.minute = minute
-
-	return clock
-}
-
-// Subtract return a new Clock object with minutes subtracted from the current Clock values.
-func (clock Clock) Subtract(minutes int) Clock {
-	hour, minute := calcTime(clock.hour, clock.minute-minutes)
 
 	clock.hour = hour
 	clock.minute = minute
