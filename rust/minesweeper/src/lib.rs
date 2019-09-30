@@ -1,41 +1,40 @@
+use std::char;
+
+use itertools::iproduct;
+
 pub fn annotate(minefield: &[&str]) -> Vec<String> {
-    let mut new_minefield: Vec<String> = Vec::with_capacity(minefield.len());
-    for (y, row) in minefield.iter().enumerate() {
-        let mut new_row:String = String::with_capacity(row.len());
-        for (x, cell) in row.chars().enumerate() {
-            let new_cell: char = match cell {
+    minefield.iter().enumerate().map(|(y, row)| {
+        row.char_indices().map(|(x, cell)| {
+            match cell {
                 ' ' => {
-                    let count: u8 = count_neighbor_mines(minefield, x, y) as u8;
+                    let count = count_neighbor_mines(minefield, x, y) as u32;
                     if count == 0 {
                         ' '
                     } else {
-                        (count + b'0') as char
+                        char::from_digit(count, 10).unwrap_or(' ')
                     }
                 },
                 c => c,
-            };
-            new_row.push(new_cell);
-        }
-        new_minefield.push(new_row);
-    }
-
-    new_minefield
+            }
+        }).collect()
+    }).collect()
 }
 
 fn count_neighbor_mines(minefield: &[&str], x: usize, y: usize) -> usize {
-    let lower_y: usize = if y == 0 { y } else { y - 1 };
-    let higher_y: usize = if y == minefield.len() - 1 { y } else { y + 1 };
-    let lower_x: usize = if x == 0 { x } else { x - 1 };
-    let higher_x: usize = if x == minefield[0].len() - 1 { x } else { x + 1 };
+    let x = x as isize;
+    let y = y as isize;
 
-    let mut count: usize = 0;
-    for ty in lower_y..=higher_y {
-        for tx in lower_x..=higher_x {
-            if minefield[ty].as_bytes()[tx] == b'*' {
-                count += 1;
+    iproduct!(y-1..=y+1, x-1..=x+1).filter(|(j, i)| {
+        if *j < 0 || *i < 0 {
+            return false;
+        }
+
+        if let Some(row) = minefield.get(*j as usize) {
+            if row.chars().nth(*i as usize) == Some('*') {
+                return true;
             }
         }
-    }
 
-    count
+        false
+    }).count()
 }
