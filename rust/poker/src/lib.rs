@@ -17,6 +17,18 @@ enum Rank {
     Ace,
 }
 
+enum SpecialCase {
+    None,
+    OnePair,
+    TwoPairs,
+    ThreeOfAKind,
+    Straight,
+    Flush,
+    FullHouse,
+    FourOfAKind,
+    StraightFlush,
+}
+
 struct Card {
     suit: Suit,
     rank: Rank,
@@ -87,7 +99,33 @@ impl<'a> Hand<'a> {
 
         values.sort_by_key(|&n| Reverse(n));
 
+        values.insert(0, self.special_hand_value());
+
         values
+    }
+
+    fn special_hand_value(&self) -> u8 {
+        let case = self.equal_cards();
+
+        match case {
+            SpecialCase::None => 0,
+            SpecialCase::OnePair => 1,
+            SpecialCase::TwoPairs => 2,
+            SpecialCase::ThreeOfAKind => 3,
+            SpecialCase::Straight => 4,
+            SpecialCase::Flush => 5,
+            SpecialCase::FullHouse => 6,
+            SpecialCase::FourOfAKind => 7,
+            SpecialCase::StraightFlush => 8,
+        }
+    }
+
+    fn equal_cards(&self) -> SpecialCase {
+        let mut case = SpecialCase::None;
+
+        let mut last_rank
+
+        case
     }
 }
 
