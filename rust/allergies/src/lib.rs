@@ -1,8 +1,8 @@
-use enum_iterator::{all, Sequence};
+use enum_iterator::IntoEnumIterator;
 
 pub struct Allergies(u32);
 
-#[derive(Debug, PartialEq, Eq, Sequence)]
+#[derive(Debug, PartialEq, Eq, IntoEnumIterator, Clone, Copy)]
 #[repr(u32)]
 pub enum Allergen {
     Eggs = 1,
@@ -25,7 +25,7 @@ impl Allergies {
     }
 
     pub fn allergies(&self) -> Vec<Allergen> {
-        all::<Allergen>()
+        Allergen::into_enum_iter()
             .filter(|v| self.0 & (*v as u32) != 0)
             .collect::<Vec<Allergen>>()
     }
