@@ -1,5 +1,10 @@
 # Parallel Letter Frequency
 
+Welcome to Parallel Letter Frequency on Exercism's Go Track.
+If you need help running the tests or submitting your code, check out `HELP.md`.
+
+## Instructions
+
 Count the frequency of letters in texts using parallel computation.
 
 Parallelism is about doing things in parallel that can also be done
@@ -35,34 +40,43 @@ For more take a look at The Go Blog's post: [Concurrency is not parallelism](htt
 If you are new to the concurrency features in Go here are some resources to get
 you started. We recommend looking over these before starting this exercise:
 
-* [Concurrency in the Golang Book](https://www.golang-book.com/books/intro/10)
-* [A Tour of Go's concurrency section](https://tour.golang.org/concurrency/1)
-* [Go's sync.Map](https://medium.com/@deckarep/the-new-kid-in-town-gos-sync-map-de24a6bf7c2c)
+- [Concurrency in the Golang Book](https://www.golang-book.com/books/intro/10)
+- [A Tour of Go's concurrency section](https://tour.golang.org/concurrency/1)
+- [Golang Book: Concurrency](https://www.golang-book.com/books/intro/10)
+- [DigitalOcean Golang Tutorial: How To Run Multiple Functions Concurrently in Go](https://www.digitalocean.com/community/tutorials/how-to-run-multiple-functions-concurrently-in-go)
+- [Synchronizing Go Routines with Channels and WaitGroups](https://dev.to/sophiedebenedetto/synchronizing-go-routines-with-channels-and-waitgroups-3ke2)
+- [Buffered Channels and Worker Pools](https://golangbot.com/buffered-channels-worker-pools/)
 
 For a really deep dive you can try the book [Concurrency in Go](http://shop.oreilly.com/product/0636920046189.do) by [@kat-co](https://github.com/kat-co).
 
+## Testing
 
-## Coding the solution
+For this exercise, the unit tests cannot determine whether you wrote a good concurrent solution.
+Instead, it is best to solve this exercise [locally][cli] and execute the benchmarks with `go test -bench .`.
+For a good solution, you should see that the concurrent version shows a lower number of nano seconds per operation (`ns/op`) than the sequential version.
 
-Look for a stub file having the name parallel_letter_frequency.go
-and place your solution code in that file.
+[cli]: https://exercism.org/docs/using/solving-exercises/working-locally
 
-## Running the tests
+## Source
 
-To run the tests run the command `go test` from within the exercise directory.
+### Created by
 
-If the test suite contains benchmarks, you can run these with the `--bench` and `--benchmem`
-flags:
+- @soniakeys
 
-    go test -v --bench . --benchmem
+### Contributed to by
 
-Keep in mind that each reviewer will run benchmarks on a different machine, with
-different specs, so the results from these benchmark tests may vary.
-
-## Further information
-
-For more detailed information about the Go track, including how to get help if
-you're having trouble, please visit the exercism.io [Go language page](http://exercism.io/languages/go/resources).
-
-## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+- @alebaffa
+- @bitfield
+- @ekingery
+- @ferhatelmas
+- @hilary
+- @kytrinyx
+- @leenipper
+- @ooransoy
+- @petertseng
+- @robphoenix
+- @rootulp
+- @roundand
+- @sebito91
+- @tleen
+- @kudligi

@@ -1,8 +1,10 @@
 import unittest
 
-from hamming import distance
+from hamming import (
+    distance,
+)
 
-# Tests adapted from `problem-specifications//canonical-data.json` @ v2.3.0
+# Tests adapted from `problem-specifications//canonical-data.json`
 
 
 class HammingTest(unittest.TestCase):
@@ -38,12 +40,6 @@ class HammingTest(unittest.TestCase):
             distance("G", "")
 
     # Utility functions
-    def setUp(self):
-        try:
-            self.assertRaisesRegex
-        except AttributeError:
-            self.assertRaisesRegex = self.assertRaisesRegexp
-
     def assertRaisesWithMessage(self, exception):
         return self.assertRaisesRegex(exception, r".+")
 

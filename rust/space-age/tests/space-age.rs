@@ -4,10 +4,7 @@ fn assert_in_delta(expected: f64, actual: f64) {
     let diff: f64 = (expected - actual).abs();
     let delta: f64 = 0.01;
     if diff > delta {
-        panic!(
-            "Your result of {} should be within {} of the expected result {}",
-            actual, delta, expected
-        )
+        panic!("Your result of {actual} should be within {delta} of the expected result {expected}")
     }
 }
 
@@ -34,8 +31,8 @@ fn venus_age() {
 #[test]
 #[ignore]
 fn mars_age() {
-    let duration = Duration::from(2_329_871_239);
-    assert_in_delta(39.25, Mars::years_during(&duration));
+    let duration = Duration::from(2_129_871_239);
+    assert_in_delta(35.88, Mars::years_during(&duration));
 }
 
 #[test]
@@ -48,20 +45,20 @@ fn jupiter_age() {
 #[test]
 #[ignore]
 fn saturn_age() {
-    let duration = Duration::from(3_000_000_000);
-    assert_in_delta(3.23, Saturn::years_during(&duration));
+    let duration = Duration::from(2_000_000_000);
+    assert_in_delta(2.15, Saturn::years_during(&duration));
 }
 
 #[test]
 #[ignore]
 fn uranus_age() {
-    let duration = Duration::from(3_210_123_456);
-    assert_in_delta(1.21, Uranus::years_during(&duration));
+    let duration = Duration::from(1_210_123_456);
+    assert_in_delta(0.46, Uranus::years_during(&duration));
 }
 
 #[test]
 #[ignore]
 fn neptune_age() {
-    let duration = Duration::from(8_210_123_456);
-    assert_in_delta(1.58, Neptune::years_during(&duration));
+    let duration = Duration::from(1_821_023_456);
+    assert_in_delta(0.35, Neptune::years_during(&duration));
 }

@@ -4,7 +4,7 @@ use sublist::{sublist, Comparison};
 fn empty_equals_empty() {
     let v: &[u32] = &[];
 
-    assert_eq!(Comparison::Equal, sublist(&v, &v));
+    assert_eq!(Comparison::Equal, sublist(v, v));
 }
 
 #[test]
@@ -62,7 +62,7 @@ fn partially_matching_sublist_at_start() {
 #[test]
 #[ignore]
 fn sublist_early_in_huge_list() {
-    let huge: Vec<u32> = (1..1000000).collect();
+    let huge: Vec<u32> = (1..1_000_000).collect();
 
     assert_eq!(Comparison::Sublist, sublist(&[3, 4, 5], &huge));
 }
@@ -70,8 +70,8 @@ fn sublist_early_in_huge_list() {
 #[test]
 #[ignore]
 fn huge_sublist_not_in_huge_list() {
-    let v1: Vec<u64> = (10..1000001).collect();
-    let v2: Vec<u64> = (1..1000000).collect();
+    let v1: Vec<u64> = (10..1_000_001).collect();
+    let v2: Vec<u64> = (1..1_000_000).collect();
 
     assert_eq!(Comparison::Unequal, sublist(&v1, &v2));
 }
@@ -96,8 +96,14 @@ fn superlist_at_end() {
 
 #[test]
 #[ignore]
+fn second_list_missing_element_from_first_list() {
+    assert_eq!(Comparison::Unequal, sublist(&[1, 2, 3], &[1, 3]));
+}
+
+#[test]
+#[ignore]
 fn superlist_early_in_huge_list() {
-    let huge: Vec<u32> = (1..1000000).collect();
+    let huge: Vec<u32> = (1..1_000_000).collect();
 
     assert_eq!(Comparison::Superlist, sublist(&huge, &[3, 4, 5]));
 }

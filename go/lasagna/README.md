@@ -15,7 +15,7 @@ Go applications are organized in packages.
 A package is a collection of source files located in the same directory.
 All source files in a directory must share the same package name.
 When a package is imported, only entities (functions, types, variables, constants) whose names start with a capital letter can be used / accessed.
-The recommended style of naming in Go is that identifiers will be named using `camelCase`, except for those meant to be accessible across packages which should be `CamelCase`.
+The recommended style of naming in Go is that identifiers will be named using `camelCase`, except for those meant to be accessible across packages which should be `PascalCase`.
 
 ```go
 package lasagna
@@ -72,12 +72,12 @@ Single line comments are preceded by `//` and multiline comments are inserted be
 ```go
 package greeting
 
-// Hello is a public function
+// Hello is a public function.
 func Hello (name string) string {
     return hi(name)
 }
 
-// hi is a private function
+// hi is a private function.
 func hi (name string) string {
     return "hi " + name
 }
@@ -95,7 +95,7 @@ Define the `OvenTime` constant with how many minutes the lasagna should be in th
 
 ```go
 OvenTime
-// Output: 40
+// => 40
 ```
 
 ## 2. Calculate the remaining oven time in minutes
@@ -108,7 +108,7 @@ func RemainingOvenTime(actual int) int {
 }
 
 RemainingOvenTime(30)
-// Output: 10
+// => 10
 ```
 
 ## 3. Calculate the preparation time in minutes
@@ -121,7 +121,7 @@ func PreparationTime(numberOfLayers int) int {
 }
 
 PreparationTime(2)
-// Output: 4
+// => 4
 ```
 
 ## 4. Calculate the elapsed working time in minutes
@@ -135,7 +135,7 @@ func ElapsedTime(numberOfLayers, actualMinutesInOven int) int {
 }
 
 ElapsedTime(3, 20)
-// Output: 26
+// => 26
 ```
 
 ## Source

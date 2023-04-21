@@ -60,7 +60,7 @@ You can easily change a value of an item using its _key_.
 
 ## Deleting values using keys
 
-You can delete an item from a dictionary using `dict.pop(<key>)`. This will remove the `(key`, `value`) pair from the dictionary and return the `value` for use. `dict.pop(<key>)` accepts second argument, `default` that is returned if the `key` is not found  (`dict.pop(<key>, <default>)`). Otherwise, a `KeyError` will be raised for any `key` that is missing.
+You can delete an item from a dictionary using `dict.pop(<key>)`. This will remove the (`key`, `value`) pair from the dictionary and return the `value` for use. `dict.pop(<key>)` accepts second argument, `default` that is returned if the `key` is not found  (`dict.pop(<key>, <default>)`). Otherwise, a `KeyError` will be raised for any `key` that is missing.
 
 ```python
 >>> bear.pop("name")
@@ -101,7 +101,7 @@ Implement the `create_inventory()` function that creates an "inventory" from a l
 
 ```python
 >>> create_inventory(["coal", "wood", "wood", "diamond", "diamond", "diamond"])
-{"coal":1, "wood":2 "diamond":3}
+{"coal":1, "wood":2, "diamond":3}
 ```
 
 ## 2. Add items from a list to an existing dictionary

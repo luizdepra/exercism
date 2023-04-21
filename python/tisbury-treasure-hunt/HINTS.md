@@ -2,11 +2,10 @@
 
 ## General
 
-- [Tuples][tuples] are immutable.
-  [Sequence Types][sequence types] that can contain any data type.
-- Tuples are [iterable][iterable].
-- Elements within tuples can be accessed via [bracket notation][bracket notation], using a zero-based index.
-- Other [Common Sequence Operations][common sequence operations] can also be used when working with tuples.
+
+[Tuples][tuples] are immutable [sequence Types][sequence types] that can contain any data type.
+Tuples are [iterable][iterable], and elements within tuples can be accessed via [bracket notation][bracket notation], using a zero-based index from the left, or -1 from the right.
+Other [Common Sequence Operations][common sequence operations] can also be used when working with tuples.
 
 ## 1. Extract coordinates
 
@@ -28,7 +27,7 @@
 - Remember that tuples support all [common sequence operations][common sequence operations].
 - Could you re-use your `compare_records()` function here?
 
-## 5. "Clean up" & format a report of all records
+## 5. "Clean up" & make a report of all records
 
 - Remember: tuples are _immutable_, but the contents can be accessed via _index_ using _bracket notation_.
 - Tuples don't have to use parentheses unless there is _ambiguity_.

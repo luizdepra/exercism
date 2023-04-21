@@ -62,20 +62,14 @@ fn test_case_insensitivity() {
 #[test]
 #[ignore]
 fn test_many_empty_lines() {
-    let mut v = Vec::with_capacity(1000);
-    for _ in 0..1000 {
-        v.push("");
-    }
+    let v = vec![""; 1000];
     assert_eq!(frequency::frequency(&v[..], 4), HashMap::new());
 }
 
 #[test]
 #[ignore]
 fn test_many_times_same_text() {
-    let mut v = Vec::with_capacity(1000);
-    for _ in 0..1000 {
-        v.push("abc");
-    }
+    let v = vec!["abc"; 1000];
     let mut hm = HashMap::new();
     hm.insert('a', 1000);
     hm.insert('b', 1000);
@@ -123,4 +117,15 @@ fn test_all_three_anthems_3_workers() {
     assert_eq!(freqs.get(&'a'), Some(&49));
     assert_eq!(freqs.get(&'t'), Some(&56));
     assert_eq!(freqs.get(&'ü'), Some(&2));
+}
+
+#[test]
+#[ignore]
+fn test_non_integer_multiple_of_threads() {
+    let v = vec!["abc"; 999];
+    let mut hm = HashMap::new();
+    hm.insert('a', 999);
+    hm.insert('b', 999);
+    hm.insert('c', 999);
+    assert_eq!(frequency::frequency(&v[..], 4), hm);
 }

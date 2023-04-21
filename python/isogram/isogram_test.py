@@ -1,8 +1,10 @@
 import unittest
 
-from isogram import is_isogram
+from isogram import (
+    is_isogram,
+)
 
-# Tests adapted from `problem-specifications//canonical-data.json` @ v1.7.0
+# Tests adapted from `problem-specifications//canonical-data.json`
 
 
 class IsogramTest(unittest.TestCase):
